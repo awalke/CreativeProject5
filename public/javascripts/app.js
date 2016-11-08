@@ -37,16 +37,16 @@ angular.module('restaurant', [])
     };
     $scope.getAll();
 
-    $scope.create = function(resturant) {
+    $scope.create = function(restaurant) {
       //console.log("pass");
-      return $http.post('/comments', restaurant).success(function(data){
+      return $http.post('/restaurants', restaurant).success(function(data){
         //console.log(data);
         $scope.restaurants.push(data);
       });
     };
 
     $scope.vote = function(restaurant) {
-      return $http.put('/restaurants/' + comment._id + '/upvote')
+      return $http.put('/restaurants/' + restaurant._id + '/vote')
         .success(function(data){
           console.log("upvote worked");
           restaurants.votes += 1;
