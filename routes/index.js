@@ -37,12 +37,59 @@ router.get('/restaurants/:restaurant', function(req, res) {
   res.json(req.restaurant);
 });
 
-router.put('/restaurants/:restaurant/rating', function(req, res, next) {
-  req.comment.upvote(function(err, restaurant){
+router.put('/restaurants/:restaurant/vote', function(req, res, next) {
+  req.restaurant.vote(function(err, restaurant){
     if (err) { return next(err); }
     res.json(restaurant);
   });
 });
 
-module.exports = router;
+router.put('/restaurants/:restaurant/star1', function(req, res, next) {
+  req.restaurant.upstar1(function(err, restaurant){
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
 
+router.put('/restaurants/:restaurant/star2', function(req, res, next) {
+  req.restaurant.upstar2(function(err, restaurant){
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
+
+router.put('/restaurants/:restaurant/star3', function(req, res, next) {
+  req.restaurant.upstar3(function(err, restaurant){
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
+
+router.put('/restaurants/:restaurant/star4', function(req, res, next) {
+  req.restaurant.upstar4(function(err, restaurant){
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
+
+router.put('/restaurants/:restaurant/star5', function(req, res, next) {
+  req.restaurant.upstar5(function(err, restaurant){
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
+
+router.put('/restaurants/:restaurant/ratingCalc', function(req, res, next) {
+  req.restaurant.ratingCalc(function(err, restaurant) {
+    if (err) { return next(err); }
+    res.json(restaurant);
+  });
+});
+
+router.delete('/restaurants/:restaurant', function(req, res) {
+  console.log("in Delete");
+  req.restaurant.remove();
+  res.json(req.restaurant);
+});
+
+module.exports = router;

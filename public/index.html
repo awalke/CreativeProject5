@@ -1,15 +1,16 @@
-<dhtml>
+<html>
 <head>
-  <title>Comments</title>
+  <title>Restaurant Rater</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <script src="javascripts/app.js"></script>
 
 </head>
 <body ng-app="restaurant" ng-controller="MainCtrl">
-<div class="row">
+<div class="row"> 
 <div class="col-md-6 col-md-offset-3">
-<div class="page-header"> 
+<div class="page-header">
   <h1>Restaurant Rater</h1>
 </div>
 
@@ -20,12 +21,24 @@
   <div>
     {{test}}
   </div>
-  <div ng-repeat="restaurant in restaurants | orderBy: '-rating'">
-    <span id="star1" class="glyphicon glyphicon-star" ng-click="incrementVotes()"></span>
-    {{restaurant.title}} - rating: {{restaurant.rating}}  votes: {{restaurant.votes}}
+  <div id="restaurant" ng-repeat="restaurant in restaurants | orderBy: '-rating'">
+
+   <span id="title">{{restaurant.title}}</span> <br>
+   <span id="rating">rating: {{restaurant.rating}}  votes: {{restaurant.votes}}</span>
+   <br>
+
+    <span id="star1" class="glyphicon glyphicon-star" ng-click="incrementStar1(restaurant)"></span>
+    <span id="star2" class="glyphicon glyphicon-star" ng-click="incrementStar2(restaurant)"></span>
+    <span id="star3" class="glyphicon glyphicon-star" ng-click="incrementStar3(restaurant)"></span>
+    <span id="star4" class="glyphicon glyphicon-star" ng-click="incrementStar4(restaurant)"></span>
+    <span id="star5" class="glyphicon glyphicon-star" ng-click="incrementStar5(restaurant)"></span>
+   <br>
+    <span id="delete" class="glyphicon glyphicon-remove" ng-click="delete(restaurant)"></span>
+
   </div>
 </div>
 </div>
 </body>
+
 </html>
 
