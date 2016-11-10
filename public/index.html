@@ -24,7 +24,7 @@
   <div id="restaurant" ng-repeat="restaurant in restaurants | orderBy: '-rating'">
 
    <span id="title">{{restaurant.title}}</span> <br>
-   <span id="rating">rating: {{restaurant.rating}}  votes: {{restaurant.votes}}</span>
+   <span id="rating">rating: {{restaurant.rating.toFixed(2)}}  votes: {{restaurant.votes}}</span>
    <br>
 
     <span id="star1" class="glyphicon glyphicon-star" ng-click="incrementStar1(restaurant)"></span>
